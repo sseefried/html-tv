@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HtmlTV Test</title>
+<link rel="stylesheet" type="text/css" href="/Users/conal/jquery/jquery-ui-1.8.16/css/ui-lightness/jquery-ui-1.8.16.custom.css">
+<script type="text/javascript" src="/Users/conal/jquery/jquery-ui-1.8.16/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="/Users/conal/jquery/jquery-ui-1.8.16/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="tv.js"></script>
+
+<style type="text/css">
+  body { margin-left: 2em; }
+  h1, h2, h3 { margin-left: -1em; }
+  h1 { text-align:center; }
+</style>
+
+
+</head>
+
+<body>
+<h1>HtmlTV Test</h1>
+
+<h2>TVs explicitly coded in Javascript</h2>
+
+<script type="text/javascript">
+/*
+$(function () {
+  // The GUI specification
+  var gui = oText;
+  // Instantiate the GUI.
+  var sink = gui($("#test1"));
+  // Give it an initial value
+  sink(Math.PI);
+});
+*/
+
+// More succinctly:
+$(function () { oText($("#test1"))(Math.PI); });
+</script>
+
+<p>Simple TV: <span id="test1"></span></p>
+
+<p>Fancier TV:</p>
+
+<script type="text/javascript">
+$(function () {
+  var gui  = oFunction(iSlider(0,10,2), oFunction(iSlider(0,10,6), oText)),
+      sink = gui($("#test2")[0])
+      val  = function (a) { return function (b) { return a + b; } };
+  sink(val);
+});
+</script>
+
+<div id="test2" style="width:90%"></div>
+
+<h2>Test 3</h2>
+
+Automatic TV synthesis.
+
+<p>Simple: π ≡ <span class="TV" gui = "oText" value = "Math.PI"></span>...</p>
+
+<p>Fancy:</p>
+<div class="TV" style="width:90%"
+     gui   = "oFunction(iSlider(0,10,2), oFunction(iSlider(0,10,6), oText))"
+     value = "function (a) { return function (b) { return a + b; } }"
+     >
+</div>
+
+<h2>Taggy synthesis</h2>
+
+<p>Not yet implemented. See source.</p>
+
+<div class="TV2">
+  <oFunction>
+    <iSlider min=0 max=10 value=2></iSlider>
+      <oFunction>
+        <iSlider min=0 max=10 value=6></iSlider>
+        <oText></oText>
+      </oFunction>
+  </oFunction>
+</div>
+
+</body>
+</html>
