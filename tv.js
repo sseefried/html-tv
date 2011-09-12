@@ -139,9 +139,10 @@ function iSlider(min,max,value) {
 
 $(function () {
         $(".TV").append(function () {
-                var top    = $(this),
-                    gui    = eval(top.attr("gui")),
-                    value  = eval(top.attr("value")),
+                var top    = $(this);
+                console.log(top.attr("value"));
+                var gui    = eval("(" + top.attr("gui") + ")"),
+                    value  = eval("(" + top.attr("value") + ")"),
                     change = gui(top);
                 change(value);
                 top[0].change = change; // for possible later use
