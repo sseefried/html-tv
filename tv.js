@@ -98,11 +98,11 @@ function iSlider(min,max,value) {
         var top = $(parent);
         top.append('\
                    <table style="width:100%"><tr>\
-                   <td class="slider-min" style="width:0px"></td>\
+                   <td class="slider-min" style="width:1px"></td>\
                    <td><div></div></td>\
-                   <td class="slider-max" style="width:0px"></td>\
+                   <td class="slider-max" style="width:1px"></td>\
                    <td style="width:5px"></td>\
-                   <td style="width:0px"><input type="text" size="8"></td>\
+                   <td style="width:1px"><input type="text" size="8"></td>\
                    </tr></table>\
                    ');
         var slider = top.find("div").first(),
