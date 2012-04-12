@@ -43,9 +43,10 @@ $(function () { oText($("#test1"))(Math.PI); });
 
 <script type="text/javascript">
 $(function () {
-  var gui  = oFunction(iSlider(0,10,2), oFunction(iSlider(0,10,6), oText)),
+  var gui  = oFunction(iPair(iPair(iSlider(0,10,2), iSlider(0,10,6)),
+                         iSlider(0,10,3)),oText),
       sink = gui($("#test2")[0])
-      val  = function (a) { return function (b) { return a + b; } };
+      val  = function (p) { return p[0][0]() + p[0][1]() + p[1](); };
   sink(val);
 });
 </script>
@@ -61,7 +62,7 @@ Automatic TV synthesis.
 <p>Fancy:</p>
 <div class="TV" style="width:90%"
      gui   = "oFunction(iSlider(0,10,2), oFunction(iSlider(0,10,6), oText))"
-     value = "function (a) { return function (b) { return a + b; } }"
+     value = "function (a) { return function (b) { return a * b; } }"
      >
 </div>
 

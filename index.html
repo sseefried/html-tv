@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HtmlTV Test</title>
+<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css">
+<script type="text/javascript" src="js-libs/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js-libs/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="tv.js"></script>
+
+<style type="text/css">
+  body { margin-left: 2em; }
+  h1, h2, h3 { margin-left: -1em; }
+  h1 { text-align:center; }
+
+  table.ipair   { width: 100%; border: 1px solid #DDD; }
+  table.ipair td.value { width: 95%; }
+  table.islider { width: 100%; border: 1px solid #DDD;}
+
+
+
+</style>
+
+<script type="text/javascript">
+$(function () {
+  // var tv = { op: 'Add',
+  //    1: { op:'ReadInt' },
+  //    2: { op:'IfE',
+  //          1: { op: 'Lt',
+  //               1: { op:'ReadFloat' },
+  //               2: { op:'ReadFloat' }
+  //             },
+  //          2: { op: 'ReadFloat' },
+  //          3: { op: 'ReadFloat' }
+  //       }
+  // };
+
+  // var tv = { op: 'IfE',
+  //    1: { op:'ReadBool' },
+  //    2: { op:'ReadInt'  },
+  //    3: { op:'ReadInt'  }
+  // };
+
+
+  var tv = { op: 'Add',
+     1: { op:'ReadInt' },
+     2: { op:'Add',
+           1: { op:'ReadFloat' },
+           2: { op:'ReadFloat' } }
+  };
+
+  // var tv = { op: 'Add',
+  //    1: { op:'ReadInt' },
+  //    2: { op:'ReadInt' }
+  // };
+
+  // var tv = { op: 'ReadFloat'};
+
+
+  TV.render($('#gui'), tv);
+})
+</script>
+</head>
+<body>
+<h1>TV to HTML test</h1>
+
+<div id="gui"></div>
+
+</body>
+</html>
